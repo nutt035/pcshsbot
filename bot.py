@@ -54,17 +54,6 @@ def generating_answer(question_from_dailogflow_dict):
     
     return answer_from_bot
 
-def menu_recormentation(): #Function for recommending menu
-    #----Additional from previous file----
-    database_ref = firestore.client().document('Food/Menu_List')
-    database_dict = database_ref.get().to_dict()
-    database_list = list(database_dict.values())
-    ran_menu = randint(0, len(database_list)-1)
-    menu_name = database_list[ran_menu]
-    #-------------------------------------
-    answer_function = menu_name + ' สิ น่ากินนะ'
-    return answer_function
-
 #Flask
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
